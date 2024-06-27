@@ -34,10 +34,12 @@ void main() {
     vec4 color = texture(sInput, vUV);
     float value = round((1.0 - rgbAverage(color))*100.)/100.;
 
-    if(value > bayer4[pos.y][pos.x]){
-        color = vec4(0.7, 0.2, 0.2, 1.0);
+    if(value <= bayer4[pos.y][pos.x]){
+        // color = vec4(0.7, 0.2, 0.2, 1.0);
+        color = vec4(1.0, 1.0, 1.0, 1.0);
     }else{
-        color = vec4(0.3, 0.1, 0.3, 1.0);
+        // color = vec4(0.3, 0.1, 0.3, 1.0);
+        color = vec4(0.0, 0.0, 0.0, 1.0);
     }
 
     fragColor = color;
